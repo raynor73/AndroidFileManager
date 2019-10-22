@@ -1,5 +1,6 @@
 package ilapin.filemanager.ui
 
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
@@ -36,7 +37,9 @@ class FsAdapter : RecyclerView.Adapter<FsAdapter.ViewHolder>() {
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        return ViewHolder(View.inflate(parent.context, android.R.layout.simple_list_item_1, parent))
+        return ViewHolder(LayoutInflater.from(parent.context).inflate(
+            android.R.layout.simple_list_item_1, parent, false
+        ))
     }
 
     override fun getItemCount() = fsItems.size

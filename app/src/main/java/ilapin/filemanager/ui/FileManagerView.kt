@@ -23,7 +23,6 @@ class FileManagerView(
 
     init {
         val layout = View.inflate(context, R.layout.view_file_manager, this)
-        addView(layout)
 
         fsItemsListView = layout.findViewById(R.id.fsItemsListView)
         fsItemsListView.layoutManager = LinearLayoutManager(context)
