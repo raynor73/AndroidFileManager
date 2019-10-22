@@ -7,6 +7,7 @@ import android.widget.FrameLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import ilapin.filemanager.R
+import ilapin.filemanager.domain.FileManager
 import ilapin.filemanager.domain.FsItem
 
 class FileManagerView(
@@ -18,6 +19,8 @@ class FileManagerView(
     constructor(context: Context) : this(context, null)
 
     private val fsItemsListView: RecyclerView
+    private val linearProgressBar: View
+    private val circularProcessBar: View
 
     private val adapter = FsAdapter()
 
@@ -25,6 +28,9 @@ class FileManagerView(
         val layout = View.inflate(context, R.layout.view_file_manager, this)
 
         fsItemsListView = layout.findViewById(R.id.fsItemsListView)
+        linearProgressBar = layout.findViewById(R.id.linearProgressBar)
+        circularProcessBar = layout.findViewById(R.id.circularProgressBar)
+
         fsItemsListView.layoutManager = LinearLayoutManager(context)
         fsItemsListView.adapter = adapter
 
@@ -33,5 +39,9 @@ class FileManagerView(
             FsItem("Bar", FsItem.Type.FILE, "/"),
             FsItem("Baz", FsItem.Type.FILE, "/")
         ))
+    }
+
+    private fun render(state: FileManager.State) {
+
     }
 }
